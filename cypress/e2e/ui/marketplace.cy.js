@@ -1,8 +1,8 @@
-import MainPage from '../../support/pages/main-page.js'
+import HomePage from '../../support/pages/home-page.js'
 import CockpitPage from '../../support/pages/cockpit-page.js'
 import MarketplacePage from '../../support/pages/marketplace-page.js'
 
-const main = new MainPage()
+const home = new HomePage()
 const cockpit = new CockpitPage()
 const market = new MarketplacePage()
 
@@ -10,14 +10,9 @@ describe('Marketplase page UI', () => {
 
   beforeEach(() => {
     cy.login('victoria.antonova@volo.global', 'Volo12345', 'Victoria Antonova')
-    // cy.loginViaUi({ email: 'victoria.antonova@volo.global', password: 'Volo12345', name: 'Victoria Antonova' })
-    main.openCockpit()
+    home.openCockpit()
     cockpit.clickSideBarMenuItem('Integrations')
     cockpit.clickSideBarMenuSubItem('Marketplace')
-    //cy.get('#mat-expansion-panel-header-8 > .mat-content > .sidebar-menu__link').click()
-    //cy.get('#cdk-accordion-child-8 > .mat-expansion-panel-body > .sidebar-menu__children > .mat-accordion > :nth-child(1) > .sidebar-menu__sub-link').click()
-    //cy.get(':nth-child(7) > .ui-menuitem-link > .ui-menuitem-text').should('be.visible')
-    // cy.url().should('include', '/admin/domain/integrations/marketplace')
   })
 
   it('checks all available features', () => {
