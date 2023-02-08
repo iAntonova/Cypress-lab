@@ -46,11 +46,13 @@ describe('Marketplase page UI', () => {
     const object = { 'microsoft': 'microsoft', '365': '365', 'te1ams': 'teams' };
 
     for (const [key, value] of Object.entries(object)) {
-      cy.log(key, value);
+      cy.log("Searching for " + key, "Expected: " + value);
       market.searchMarketplace(key)
-
+      cy.wait(2000)
+      
       market.getAllCards().each(($element) => {
-        cy.log($element.innerText)
+        cy.log('!!! Debuging here .----->.' + cy.wrap($element.innerText))
+        cy.log('!!! Debuging2 here .----->.' + $element.its('innerText'))
         cy.wrap($element.innerText).contains(value, { matchCase: false })
         //market.getAllCards().should('have.length', 3)
       })

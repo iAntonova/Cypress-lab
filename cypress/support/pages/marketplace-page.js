@@ -22,6 +22,9 @@ class MarketplacePage {
     getAllCards() {
         //cy.get('.content-wrapper', { timeout: this.timeout }).should('be.visible').click()
         cy.log('find all elements' + '.title>.ngx-ellipsis-inner')
+        const element = cy.get('.title>.ngx-ellipsis-inner', { timeout: this.timeout })
+        cy.log('text here ..' + element.innerText)
+        cy.log(element.its('length'))
         return cy.get('.title>.ngx-ellipsis-inner', { timeout: this.timeout }).should('be.visible')
     }
 
