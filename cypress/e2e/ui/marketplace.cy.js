@@ -1,3 +1,4 @@
+/// <reference types="Cypress" />
 import HomePage from '../../support/pages/home-page.js'
 import CockpitPage from '../../support/pages/cockpit-page.js'
 import MarketplacePage from '../../support/pages/marketplace-page.js'
