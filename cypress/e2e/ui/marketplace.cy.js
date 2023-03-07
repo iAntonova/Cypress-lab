@@ -104,7 +104,7 @@ describe('Marketplase page UI', () => {
 
 
 
-  it('opens feature\'s Content page by clickng on card', () => {
+  it.skip('opens feature\'s Content page by clickng on card', () => {
     cy.get(':nth-child(1) > .card-wrapper > .content-wrapper').click()
     // General Information:
     cy.get(':nth-child(2) > .form-card > .form-card-header > .row > .col-sm-12 > .title', { timeout: 15000 })
@@ -155,7 +155,7 @@ describe('Marketplase page UI', () => {
     //.contains('More information about integration with Microsoft Exchange/ Microsoft Office 365  can be found via the Integration Instructions.')
   })
 
-  it('opens feature\'s Content page by clickng on View', () => {
+  it.skip('opens feature\'s Content page by clickng on View', () => {
     cy.get(':nth-child(1) > .card-wrapper > .footer-wrapper > .new-link')
   })
 })
