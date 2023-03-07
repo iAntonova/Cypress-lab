@@ -55,7 +55,7 @@ Cypress.Commands.add('loginByApi', (username, password) => {
                 "grant_type": "client_credentials",
                 "scope": "api3 openid offline_access",
                 "username": username,
-                "password": password
+                "password": password,
             }
         }).then((response) => {
             expect(response.status).to.eq(200)
