@@ -42,9 +42,9 @@ describe('Marketplase page UI', () => {
   })
 
 
-  it.only('searches w/ VALID value', () => {
-    const searchList = ['microsoft', '365', 'teams', 'Gmail', 'Google Calendar', 'Microsoft Teams', 'exc', ' Microsoft ', 'calendar'];
-    searchList.forEach((li) => {
+  it('searches w/ VALID value', () => {
+    const searchValidList = ['microsoft', '365', 'teams', 'Gmail', 'Google Calendar', 'Microsoft Teams', 'exc', ' Microsoft ', 'calendar'];
+    searchValidList.forEach((li) => {
       cy.log("Searching for " + "\'" + li + "\'");
       market.searchMarketplace(li)
       cy.wait(3000)
@@ -58,9 +58,22 @@ describe('Marketplase page UI', () => {
   })
 
 
-  // it('searches w/ INVALID value', () => {
-  //   // SEARCH: "taem" (invalid)
+  it.only('searches w/ INVALID value', () => {
+    const searchInvalidList = ['mac', '057'];
+    searchInvalidList.forEach((li) => {
+      cy.log("Searching for " + "\'" + li + "\'");
+      market.searchMarketplace(li)
+      cy.wait(3000)
 
+      market.getNoData().then(element => {
+        const actualText = element.text()
+        expect(actualText.includes('No data to display')).to.be.true
+      })
+    })
+  })
+
+
+  
   //   cy.get('.search-wrapper').type('taem{enter}')
   //   cy.get('.no-data').contains('No data to display')
   //   cy.focused().clear()
@@ -145,23 +158,4 @@ describe('Marketplase page UI', () => {
   it('opens feature\'s Content page by clickng on View', () => {
     cy.get(':nth-child(1) > .card-wrapper > .footer-wrapper > .new-link')
   })
-
-  // it.only('searchs w/ VALID value', () => {
-  //   // SEARCH: "Microsoft" (valid)
-
-  //   const object = { 'microsoft': 'microsoft', '365': '365', 'teams': 'teams' };
-
-  //   for (const [key, value] of Object.entries(object)) {
-  //     cy.log(key, value);
-  //     market.searchMarketplace(key)
-
-  //     market.getAllCards().each(($element) => {
-  //       cy.log($element.innerText)
-  //       cy.wrap($element.innerText).contains(value, { matchCase: false })
-  //       //market.getAllCards().should('have.length', 3)
-  //     })
-  //   }
-
-
-
 })
