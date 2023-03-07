@@ -1,3 +1,5 @@
+/// <reference types="Cypress" />
+
 class MarketplacePage {
 
     timeout = Cypress.config().defaultCommandTimeout
@@ -21,18 +23,18 @@ class MarketplacePage {
 
     getAllCards() {
         //cy.get('.content-wrapper', { timeout: this.timeout }).should('be.visible').click()
-        cy.log('find all elements' + '.title>.ngx-ellipsis-inner')
-        const element = cy.get('.title>.ngx-ellipsis-inner', { timeout: this.timeout })
-        cy.log('text here ..' + element.innerText)
-        cy.log(element.its('length'))
+        // cy.log('find all elements' + '.title>.ngx-ellipsis-inner')
+        // const element = cy.get('.title>.ngx-ellipsis-inner', { timeout: this.timeout })
+        // cy.log('text here ..' + element.innerText)
+        // cy.log(element.its('length'))
         return cy.get('.title>.ngx-ellipsis-inner', { timeout: this.timeout }).should('be.visible')
     }
 
-    searchMarketplace(keyword){
+    searchMarketplace(keyword) {
         cy.get('input[placeholder="Search"]', { timeout: this.timeout }).should('be.visible').clear()
         cy.get('input[placeholder="Search"]', { timeout: this.timeout }).should('be.visible').click()
         cy.get('input[placeholder="Search"]', { timeout: this.timeout }).should('be.visible').type(keyword + '{enter}')
-        
+
     }
 
     // openSideBarMenuSubItem(menuItem){

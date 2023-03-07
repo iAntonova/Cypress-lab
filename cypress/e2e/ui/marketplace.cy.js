@@ -1,4 +1,5 @@
 /// <reference types="Cypress" />
+
 import HomePage from '../../support/pages/home-page.js'
 import CockpitPage from '../../support/pages/cockpit-page.js'
 import MarketplacePage from '../../support/pages/marketplace-page.js'
@@ -41,90 +42,54 @@ describe('Marketplase page UI', () => {
   })
 
 
-  it.only('searchs w/ VALID value', () => {
-    // SEARCH: "Microsoft" (valid)
+  it.only('searches w/ VALID value', () => {
+    const searchList = ['microsoft', '365', 'teams', 'Gmail', 'Google Calendar', 'Microsoft Teams', 'exc', ' Microsoft ', 'calendar'];
+    searchList.forEach((li) => {
+      cy.log("Searching for " + "\'" + li + "\'");
+      market.searchMarketplace(li)
+      cy.wait(3000)
 
-    const object = { 'microsoft': 'microsoft', '365': '365', 'te1ams': 'teams' };
-
-    for (const [key, value] of Object.entries(object)) {
-      cy.log("Searching for " + key, "Expected: " + value);
-      market.searchMarketplace(key)
-      cy.wait(2000)
-      
-      market.getAllCards().each(($element) => {
-        cy.log('!!! Debuging here .----->.' + cy.wrap($element.innerText))
-        cy.log('!!! Debuging2 here .----->.' + $element.its('innerText'))
-        cy.wrap($element.innerText).contains(value, { matchCase: false })
-        //market.getAllCards().should('have.length', 3)
+      market.getAllCards().each(($element, index) => {
+        cy.log("Found: \'" + $element.text() + "\'" + " with index: " + index)
+        const ele = cy.wrap($element.innerText)
+        ele.contains(li, { matchCase: false })
       })
-    }
-
-
-
-
-    // cy.get('.search-wrapper').type('microsoft{enter}')
-    // features id:1 "Microsoft Exchange / Office 365"
-    //   cy.get(':nth-child(1) > .card-wrapper > .content-wrapper > .card-title > .title > .ngx-ellipsis-inner').should('have.text', 'Microsoft Exchange / Office 365')
-    //   // features id:2 "Microsoft Office 365 Calendar"
-    //   cy.get(':nth-child(2) > .card-wrapper > .content-wrapper > .card-title > .title > .ngx-ellipsis-inner').should('have.text', 'Microsoft Office 365 Calendar')
-    //       // features id:5 "Microsoft Teams"
-    //   cy.get(':nth-child(3) > .card-wrapper > .content-wrapper > .card-title > .title > .ngx-ellipsis-inner').should('have.text', 'Microsoft Teams')
-    //   cy.focused().clear()
-    //   // cy.get('.search-wrapper').clear()
-
-    //   // features id:1 "Microsoft Exchange / Office 365"
-    //   cy.get(':nth-child(1) > .card-wrapper > .content-wrapper > .card-title > .title > .ngx-ellipsis-inner').should('have.text', 'Microsoft Exchange / Office 365')
-    //   cy.get(':nth-child(1) > .card-wrapper > .content-wrapper > .card-description > span > .ngx-ellipsis-inner').should('have.text', 'Enhance your recruitment emailing with Raiser and Microsoft Exchange or Office 365 Integration')
-
-    //   // features id:2 "Microsoft Office 365 Calendar"
-    //   cy.get(':nth-child(2) > .card-wrapper > .content-wrapper > .card-title > .title > .ngx-ellipsis-inner').should('have.text', 'Microsoft Office 365 Calendar')
-    //   cy.get(':nth-child(2) > .card-wrapper > .content-wrapper > .card-description > span > .ngx-ellipsis-inner').should('have.text', 'The details of your calendar and interview schedule are all in one place with Raiser and Microsoft Office 365 Calendar integration')
-
-    //   // features id:3 "Gmail"
-    //   cy.get(':nth-child(3) > .card-wrapper > .content-wrapper > .card-title > .title > .ngx-ellipsis-inner').should('have.text', 'Gmail')
-    //   cy.get(':nth-child(3) > .card-wrapper > .content-wrapper > .card-description > span > .ngx-ellipsis-inner').should('have.text', 'Enhance your recruitment mailing with Raiser and Gmail Integration')
-
-    //   // features id:4 "Google Calendar"
-    //   cy.get(':nth-child(4) > .card-wrapper > .content-wrapper > .card-title > .title > .ngx-ellipsis-inner').should('have.text', 'Google Calendar')
-    //   cy.get(':nth-child(4) > .card-wrapper > .content-wrapper > .card-description > span > .ngx-ellipsis-inner').should('have.text', 'The details of your calendar and interview schedule are all in one place with Raiser and Google Calendar integration.')
-
-    //   // features id:5 "Microsoft Teams"
-    //   cy.get(':nth-child(5) > .card-wrapper > .content-wrapper > .card-title > .title > .ngx-ellipsis-inner').should('have.text', 'Microsoft Teams')
-    //   cy.get(':nth-child(5) > .card-wrapper > .content-wrapper > .card-description > span > .ngx-ellipsis-inner').should('have.text', 'Creation of specific teams and channels in Microsoft Teams based on the relevant information from Raiser.')
-    // })
-
-    // it('searchs w/ INVALID value', () => {
-    //   // SEARCH: "taem" (invalid)
-
-    //   cy.get('.search-wrapper').type('taem{enter}')
-    //   cy.get('.no-data').contains('No data to display')
-    //   cy.focused().clear()
-    //   cy.get('.search-wrapper').type('3652{enter}')
-    //   cy.get('.no-data').contains('No data to display')
-    //   cy.focused().clear()
-    //   // cy.get('.search-wrapper').clear()
-
-    //   // features id:1 "Microsoft Exchange / Office 365"
-    //   cy.get(':nth-child(1) > .card-wrapper > .content-wrapper > .card-title > .title > .ngx-ellipsis-inner').should('have.text', 'Microsoft Exchange / Office 365')
-    //   cy.get(':nth-child(1) > .card-wrapper > .content-wrapper > .card-description > span > .ngx-ellipsis-inner').should('have.text', 'Enhance your recruitment emailing with Raiser and Microsoft Exchange or Office 365 Integration')
-
-    //   // features id:2 "Microsoft Office 365 Calendar"
-    //   cy.get(':nth-child(2) > .card-wrapper > .content-wrapper > .card-title > .title > .ngx-ellipsis-inner').should('have.text', 'Microsoft Office 365 Calendar')
-    //   cy.get(':nth-child(2) > .card-wrapper > .content-wrapper > .card-description > span > .ngx-ellipsis-inner').should('have.text', 'The details of your calendar and interview schedule are all in one place with Raiser and Microsoft Office 365 Calendar integration')
-
-    //   // features id:3 "Gmail"
-    //   cy.get(':nth-child(3) > .card-wrapper > .content-wrapper > .card-title > .title > .ngx-ellipsis-inner').should('have.text', 'Gmail')
-    //   cy.get(':nth-child(3) > .card-wrapper > .content-wrapper > .card-description > span > .ngx-ellipsis-inner').should('have.text', 'Enhance your recruitment mailing with Raiser and Gmail Integration')
-
-    //   // features id:4 "Google Calendar"
-    //   cy.get(':nth-child(4) > .card-wrapper > .content-wrapper > .card-title > .title > .ngx-ellipsis-inner').should('have.text', 'Google Calendar')
-    //   cy.get(':nth-child(4) > .card-wrapper > .content-wrapper > .card-description > span > .ngx-ellipsis-inner').should('have.text', 'The details of your calendar and interview schedule are all in one place with Raiser and Google Calendar integration.')
-
-    //   // features id:5 "Microsoft Teams"
-    //   cy.get(':nth-child(5) > .card-wrapper > .content-wrapper > .card-title > .title > .ngx-ellipsis-inner').should('have.text', 'Microsoft Teams')
-    //   cy.get(':nth-child(5) > .card-wrapper > .content-wrapper > .card-description > span > .ngx-ellipsis-inner').should('have.text', 'Creation of specific teams and channels in Microsoft Teams based on the relevant information from Raiser.')
-
+    })
   })
+
+
+  // it('searches w/ INVALID value', () => {
+  //   // SEARCH: "taem" (invalid)
+
+  //   cy.get('.search-wrapper').type('taem{enter}')
+  //   cy.get('.no-data').contains('No data to display')
+  //   cy.focused().clear()
+  //   cy.get('.search-wrapper').type('3652{enter}')
+  //   cy.get('.no-data').contains('No data to display')
+  //   cy.focused().clear()
+  //   // cy.get('.search-wrapper').clear()
+
+  //   // features id:1 "Microsoft Exchange / Office 365"
+  //   cy.get(':nth-child(1) > .card-wrapper > .content-wrapper > .card-title > .title > .ngx-ellipsis-inner').should('have.text', 'Microsoft Exchange / Office 365')
+  //   cy.get(':nth-child(1) > .card-wrapper > .content-wrapper > .card-description > span > .ngx-ellipsis-inner').should('have.text', 'Enhance your recruitment emailing with Raiser and Microsoft Exchange or Office 365 Integration')
+
+  //   // features id:2 "Microsoft Office 365 Calendar"
+  //   cy.get(':nth-child(2) > .card-wrapper > .content-wrapper > .card-title > .title > .ngx-ellipsis-inner').should('have.text', 'Microsoft Office 365 Calendar')
+  //   cy.get(':nth-child(2) > .card-wrapper > .content-wrapper > .card-description > span > .ngx-ellipsis-inner').should('have.text', 'The details of your calendar and interview schedule are all in one place with Raiser and Microsoft Office 365 Calendar integration')
+
+  //   // features id:3 "Gmail"
+  //   cy.get(':nth-child(3) > .card-wrapper > .content-wrapper > .card-title > .title > .ngx-ellipsis-inner').should('have.text', 'Gmail')
+  //   cy.get(':nth-child(3) > .card-wrapper > .content-wrapper > .card-description > span > .ngx-ellipsis-inner').should('have.text', 'Enhance your recruitment mailing with Raiser and Gmail Integration')
+
+  //   // features id:4 "Google Calendar"
+  //   cy.get(':nth-child(4) > .card-wrapper > .content-wrapper > .card-title > .title > .ngx-ellipsis-inner').should('have.text', 'Google Calendar')
+  //   cy.get(':nth-child(4) > .card-wrapper > .content-wrapper > .card-description > span > .ngx-ellipsis-inner').should('have.text', 'The details of your calendar and interview schedule are all in one place with Raiser and Google Calendar integration.')
+
+  //   // features id:5 "Microsoft Teams"
+  //   cy.get(':nth-child(5) > .card-wrapper > .content-wrapper > .card-title > .title > .ngx-ellipsis-inner').should('have.text', 'Microsoft Teams')
+  //   cy.get(':nth-child(5) > .card-wrapper > .content-wrapper > .card-description > span > .ngx-ellipsis-inner').should('have.text', 'Creation of specific teams and channels in Microsoft Teams based on the relevant information from Raiser.')
+
+
 
   it('opens feature\'s Content page by clickng on card', () => {
     cy.get(':nth-child(1) > .card-wrapper > .content-wrapper').click()
@@ -199,4 +164,4 @@ describe('Marketplase page UI', () => {
 
 
 
-  })
+})
