@@ -11,7 +11,7 @@ const market = new MarketplacePage()
 describe('Marketplase page UI', () => {
 
   beforeEach(() => {
-    cy.login('victoria.antonova@volo.global', 'Volo12345', 'Victoria Antonova')
+    cy.loginUI('victoria.antonova@volo.global', 'Volo12345', 'Victoria Antonova')
     home.openCockpit()
     cockpit.clickSideBarMenuItem('Integrations')
     cockpit.clickSideBarMenuSubItem('Marketplace')
