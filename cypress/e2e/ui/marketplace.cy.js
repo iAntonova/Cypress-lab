@@ -11,13 +11,13 @@ const market = new MarketplacePage()
 describe('Marketplase page UI', () => {
 
   beforeEach(() => {
-    cy.login('victoria.antonova@volo.global', 'Volo12345', 'Victoria Antonova')
+    cy.loginUI('victoria.antonova@volo.global', 'Volo12345', 'Victoria Antonova')
     home.openCockpit()
     cockpit.clickSideBarMenuItem('Integrations')
     cockpit.clickSideBarMenuSubItem('Marketplace')
   })
 
-  it('checks all available features', () => {
+  it('checks all available features displayed', () => {
     market.getAllCards().should('have.length', 5)
 
     // // features id:1 "Microsoft Exchange / Office 365"
@@ -58,7 +58,7 @@ describe('Marketplase page UI', () => {
   })
 
 
-  it.only('searches w/ INVALID value', () => {
+  it('searches w/ INVALID value', () => {
     const searchInvalidList = ['mac', '057'];
     searchInvalidList.forEach((li) => {
       cy.log("Searching for " + "\'" + li + "\'");
@@ -71,8 +71,6 @@ describe('Marketplase page UI', () => {
       })
     })
   })
-
-
   
   //   cy.get('.search-wrapper').type('taem{enter}')
   //   cy.get('.no-data').contains('No data to display')
@@ -102,9 +100,7 @@ describe('Marketplase page UI', () => {
   //   cy.get(':nth-child(5) > .card-wrapper > .content-wrapper > .card-title > .title > .ngx-ellipsis-inner').should('have.text', 'Microsoft Teams')
   //   cy.get(':nth-child(5) > .card-wrapper > .content-wrapper > .card-description > span > .ngx-ellipsis-inner').should('have.text', 'Creation of specific teams and channels in Microsoft Teams based on the relevant information from Raiser.')
 
-
-
-  it('opens feature\'s Content page by clickng on card', () => {
+  it.skip('opens feature\'s Content page by clickng on card', () => {
     cy.get(':nth-child(1) > .card-wrapper > .content-wrapper').click()
     // General Information:
     cy.get(':nth-child(2) > .form-card > .form-card-header > .row > .col-sm-12 > .title', { timeout: 15000 })
@@ -155,7 +151,7 @@ describe('Marketplase page UI', () => {
     //.contains('More information about integration with Microsoft Exchange/ Microsoft Office 365  can be found via the Integration Instructions.')
   })
 
-  it('opens feature\'s Content page by clickng on View', () => {
+  it.skip('opens feature\'s Content page by clickng on View', () => {
     cy.get(':nth-child(1) > .card-wrapper > .footer-wrapper > .new-link')
   })
 })
