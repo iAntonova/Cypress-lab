@@ -100,11 +100,8 @@ describe('Marketplase page UI', () => {
   //   cy.get(':nth-child(5) > .card-wrapper > .content-wrapper > .card-title > .title > .ngx-ellipsis-inner').should('have.text', 'Microsoft Teams')
   //   cy.get(':nth-child(5) > .card-wrapper > .content-wrapper > .card-description > span > .ngx-ellipsis-inner').should('have.text', 'Creation of specific teams and channels in Microsoft Teams based on the relevant information from Raiser.')
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 0bf9719859b9d11855185ef7b70f5523054cda35
   it.skip('opens feature\'s Content page by clickng on card', () => {
     cy.get(':nth-child(1) > .card-wrapper > .content-wrapper').click()
     // General Information:
