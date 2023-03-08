@@ -11,14 +11,29 @@ const market = new MarketplacePage()
 describe('Marketplase page UI', () => {
 
   beforeEach(() => {
+    // Open Eyes to start visual testing.
+    cy.eyesOpen({
+      appName: 'Raiser > Marketplace',
+      testName: Cypress.currentTest.title,
+    })
+    // Login w/ UI costom command.
     cy.loginUI('victoria.antonova@volo.global', 'Volo12345', 'Victoria Antonova')
+    // Load the Marketplace page.
     home.openCockpit()
     cockpit.clickSideBarMenuItem('Integrations')
     cockpit.clickSideBarMenuSubItem('Marketplace')
   })
 
-  it('checks all available features displayed', () => {
+  it.only('checks all available features displayed', () => {
+    // Verify the full login page loaded correctly.
+    cy.eyesCheckWindow({
+      tag: "Marketplace page",
+      target: 'window',
+      fully: true
+    });
+    // Perform Marketplace.
     market.getAllCards().should('have.length', 5)
+
 
     // // features id:1 "Microsoft Exchange / Office 365"
     // cy.get(':nth-child(1) > .card-wrapper > .content-wrapper > .card-title > .title > .ngx-ellipsis-inner').should('have.text', 'Microsoft Exchange / Office 365')
@@ -71,7 +86,7 @@ describe('Marketplase page UI', () => {
       })
     })
   })
-  
+
   //   cy.get('.search-wrapper').type('taem{enter}')
   //   cy.get('.no-data').contains('No data to display')
   //   cy.focused().clear()
@@ -155,5 +170,12 @@ describe('Marketplase page UI', () => {
 
   it.skip('opens feature\'s Content page by clickng on View', () => {
     cy.get(':nth-child(1) > .card-wrapper > .footer-wrapper > .new-link')
+  })
+
+  // This method performs cleanup after each test.
+  afterEach(() => {
+
+    // Close Eyes to tell the server it should display the results.
+    cy.eyesClose()
   })
 })

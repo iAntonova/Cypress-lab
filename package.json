@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/iAntonova/Cypress-lab#readme",
   "devDependencies": {
-    "cypress": "^12.3.0"
+    "@applitools/eyes-cypress": "^3.29.1",
+    "cypress": "^12.7.0"
   }
 }

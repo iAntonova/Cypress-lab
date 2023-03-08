@@ -9,10 +9,13 @@ module.exports = defineConfig({
     },
   },
 
-  viewportWidth: 1536,
-  viewportHeight: 864,
+  viewportWidth: 1600,
+  viewportHeight: 900,
 
   //viewportWidth: 1920,
   //viewportHeight: 1200,
 
 });
+
+
+require('@applitools/eyes-cypress')(module);

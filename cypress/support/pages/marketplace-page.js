@@ -22,6 +22,10 @@ class MarketplacePage {
         return cy.get('.no-data.text-center', { timeout: this.timeout }).should('be.visible')
     }
 
+    getFeatureCard(titleCard) {
+        return cy.get('.ngx-ellipsis-inner').should('have.text', titleCard).click()
+    }
+
 
 }
 
