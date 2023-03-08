@@ -23,7 +23,7 @@ class MarketplacePage {
     }
 
     getFeatureCard(titleCard) {
-        return cy.get('.ngx-ellipsis-inner').should('have.text', titleCard).click()
+        return cy.get('.ngx-ellipsis-inner').contains(titleCard).click()
     }
 
 
