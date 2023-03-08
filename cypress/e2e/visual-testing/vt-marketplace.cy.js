@@ -32,19 +32,49 @@ describe('Marketplase page visual test', () => {
       fully: true
     });
 
-    //market.getFeatureCard('Microsoft Exchange / Office 365')
-    cy.get('.ngx-ellipsis-inner').contains('Microsoft Exchange / Office 365').click()
-
-
+    market.getFeatureCard('Microsoft Exchange / Office 365')
     // Verify the full Feature Card loaded correctly.
     cy.eyesCheckWindow({
-      tag: "Feature Card: Microsoft Exchange / Office 365",
+      tag: "Feature: Microsoft Exchange / Office 365",
       target: 'window',
       fully: true
     });
+    cy.go('back')
 
-    
+    market.getFeatureCard('Microsoft Office 365 Calendar')
+    // Verify the full Feature Card loaded correctly.
+    cy.eyesCheckWindow({
+      tag: "Feature: Microsoft Office 365 Calendar",
+      target: 'window',
+      fully: true
+    });
+    cy.go('back')
 
+    market.getFeatureCard('Gmail')
+    // Verify the full Feature Card loaded correctly.
+    cy.eyesCheckWindow({
+      tag: "Feature: Gmail",
+      target: 'window',
+      fully: true
+    });
+    cy.go('back')
+
+    market.getFeatureCard('Google Calendar')
+    // Verify the full Feature Card loaded correctly.
+    cy.eyesCheckWindow({
+      tag: "Feature: Google Calendar",
+      target: 'window',
+      fully: true
+    });
+    cy.go('back')
+
+    market.getFeatureCard('Microsoft Teams')
+    // Verify the full Feature Card loaded correctly.
+    cy.eyesCheckWindow({
+      tag: "Feature: Microsoft Teams",
+      target: 'window',
+      fully: true
+    });
   })
 
   afterEach(() => {
