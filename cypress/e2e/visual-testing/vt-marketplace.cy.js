@@ -38,10 +38,12 @@ describe('Marketplase page visual test', () => {
 
     // Verify the full Feature Card loaded correctly.
     cy.eyesCheckWindow({
-      tag: "Feature Card page",
+      tag: "Feature Card: Microsoft Exchange / Office 365",
       target: 'window',
       fully: true
     });
+
+    
 
   })
 
