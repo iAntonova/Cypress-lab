@@ -4,3 +4,5 @@ npm -v:     8.19.3
 # to run:
 npx cypress open
 
+# for visual testing:
+https://eyes.applitools.com/
