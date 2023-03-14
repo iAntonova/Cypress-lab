@@ -26,6 +26,9 @@ class MarketplacePage {
         return cy.get('.ngx-ellipsis-inner').contains(titleCard).click()
     }
 
+    tagMarketplace(tagname) {
+        return cy.get('.ng-option-label').should('have.value', tagname)
+    }
 
 }
 
