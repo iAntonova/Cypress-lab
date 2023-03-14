@@ -1,0 +1,64 @@
+[
+    {
+        "tag": "Calendar",
+        "feature": [
+            "Microsoft Office 365 Calendar",
+            "Google Calendar"
+        ]
+    },
+    {
+        "tag": "Channels",
+        "feature": "Microsoft Teams"
+    },
+    {
+        "tag": "Emails", 
+        "feature": [
+            "Microsoft Exchange / Office 365",
+            "Gmail"
+        ]
+    },
+    {
+        "tag": "Gmail", 
+        "feature": "Gmail"
+    },
+    {
+        "tag":"Google",
+        "feature": "Google Calendar"
+    },
+    {
+        "tag": "Google Calendar", 
+        "feature": "Google Calendar"
+    },
+    {
+        "tag":"Microsoft Exchange", 
+        "feature": "Microsoft Exchange / Office 365"
+    },
+    {
+        "tag": "Microsoft Outlook",
+        "feature": "Microsoft Office 365 Calendar"
+    },
+    {
+        "tag": "Microsoft Teams", 
+        "feature": "Microsoft Teams"
+    },
+    {
+        "tag": "Office 365", 
+        "feature": [
+            "Microsoft Exchange / Office 365",
+            "Microsoft Office 365 Calendar"
+        ]
+    },
+    {
+        "tag": "Recrutment", 
+        "feature": [
+            "Microsoft Exchange / Office 365",
+            "Microsoft Office 365 Calendar",
+            "Gmail",
+            "Google Calendar"
+        ]
+    },
+    {
+        "tag": "Teams", 
+        "feature": "Microsoft Teams"
+    }
+]
