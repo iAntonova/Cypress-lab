@@ -35,7 +35,7 @@ Cypress.Commands.add('loginUI', (username, password, namecheck) => {
         cy.url().should('contain', '/dashboard')
         cy.get('.m-b-3 > .name-hyperlink').should('contain', namecheck)
     })
-    // cy.visit('/dashboard')
+    cy.visit('/dashboard')
 })
 
 

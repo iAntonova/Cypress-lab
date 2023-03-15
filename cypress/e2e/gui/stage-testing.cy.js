@@ -11,23 +11,30 @@ describe('Testing Stage page UI', () => {
         recrStage.visit()
     })
 
-    it('adds meeting with integration', () => {
+    it('Invalid>Add meeting>Associates ERROR Message: \'1 emplyee not yet accepted an invitation\'', () => {
         recrStage.addMeeting()
-        cy.wait(3000)
-        cy.get('div.ng-value-container')
-        .eq(0)
-        .should('contain', 'Select')
-        .type('Vera Reinhardt')
-        //cy.get('h6.full-name').click({ force: true })
-//'The user Vera Reinhardt has not yet accepted an invitation to Raiser'
+        recrStage.selectAssociatesDdl(['Vera Reinhardt'])
+        recrStage.clearFocus()
+        recrStage.checkAssociatesError('The user Vera Reinhardt has not yet accepted an invitation to Raiser')
+        recrStage.clickNextBtn()
+        recrStage.checkSelectAssociatePopupTitle()
+    })
 
-        // cy.get('h6.full-name').each(($el) => {
-        //     const associateName = $el.find('h6.full-name').text()
-        //     if (associateName.includes('Vera Reinhardt')) {
-        //         cy.wrap($el).click()
-        //     }
-        // })
-        
+    it('Invalid>Add meeting>Associates ERROR Message: \'more emplyees not yet accepted an invitation\'', () => {
+        recrStage.addMeeting()
+        recrStage.selectAssociatesDdl(['Vera Reinhardt', 'Carmen 47 Roca'])
+        recrStage.clearFocus()
+        recrStage.checkAssociatesError('These users have not yet accepted an invitation to Raiser: Vera Reinhardt, Carmen 47 Roca')
+        recrStage.clickNextBtn()
+        recrStage.checkSelectAssociatePopupTitle()
+    })
 
+    it.skip('Invalid>Edit meeting>Associates ERROR Message: \'1 emplyee not yet accepted an invitation\'', () => {
+        recrStage.addMeeting()
+        recrStage.selectAssociatesDdl(['Vera Reinhardt'])
+        recrStage.clearFocus()
+        recrStage.checkAssociatesError('The user Vera Reinhardt has not yet accepted an invitation to Raiser')
+        recrStage.clickNextBtn()
+        recrStage.checkSelectAssociatePopupTitle()
     })
 })

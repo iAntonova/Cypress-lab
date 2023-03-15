@@ -9,16 +9,15 @@ const cockpit = new CockpitPage()
 const market = new MarketplacePage()
 
 
-
 describe('Marketplase page UI', () => {
 
   beforeEach(() => {
     // Login w/ UI custom command.
     cy.loginUI('victoria.antonova@volo.global', 'Volo12345', 'Victoria Antonova')
     // Load the Marketplace page.
-    // home.openCockpit()
-    // cockpit.clickSideBarMenuItem('Integrations')
-    // cockpit.clickSideBarMenuSubItem('Marketplace')
+    home.openCockpit()
+    cockpit.clickSideBarMenuItem('Integrations')
+    cockpit.clickSideBarMenuSubItem('Marketplace')
     cy.fixture('../fixtures/tags.json').as('tags')
   })
 
@@ -56,14 +55,14 @@ describe('Marketplase page UI', () => {
     })
   })
 
-  it.only('checks tags_2', () => {
+  it.skip('checks tags_2', () => {
     // cy.visit('/admin/domain/integrations/marketplace')
     cy.log('there are ${tags} .')
     
   })
 
 
-  it('checks tags', () => {
+  it.skip('checks tags', () => {
     cy.get('.ng-input').type('cal')
     cy.get('.ng-option-label').each(($el, index, $list) => {
       cy.log("Found tag: \'" + $el.text() + "\'" + " with index: " + index)

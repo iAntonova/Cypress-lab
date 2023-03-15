@@ -9,3 +9,6 @@ npx cypress open
 
 # for visual testing:
 https://eyes.applitools.com/
+
+# record run
+> npx cypress run --record --key 90d6cfd4-0127-4fd7-8ed3-a0c4f3ed1b35

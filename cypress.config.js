@@ -1,6 +1,7 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
+  projectId: 'cxut92',
   e2e: {
     baseUrl: 'https://test.raiser.work/#',
     defaultCommandTimeout: 30000,
