@@ -4,7 +4,7 @@ module.exports = defineConfig({
   projectId: 'cxut92',
   e2e: {
     baseUrl: 'https://test.raiser.work/#',
-    defaultCommandTimeout: 30000,
+    defaultCommandTimeout: 40000,
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },

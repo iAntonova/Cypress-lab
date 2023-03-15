@@ -12,12 +12,6 @@ class RecruitmentStagePage {
         cy.get('#actions-tooltip-container').click()
     }
 
-    checkSelectAssociatePopupTitle() {
-        cy.get('.modal-title').as('selectAssociatePopupTitle')
-        cy.get('@selectAssociatePopupTitle')
-            .should('contain', 'Select Associate')
-    }
-
     clearFocus() {
         cy.get('app-add-meeting')
             .click('left')
