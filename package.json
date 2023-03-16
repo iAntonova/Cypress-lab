@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress run --record --key 90d6cfd4-0127-4fd7-8ed3-a0c4f3ed1b35 --browser chrome --spec 'cypress/e2e/gui/marketplace.cy.js,cypress/e2e/gui/stage-testing.cy.js,,cypress/e2e/gui/marketplace-visual-test.cy.js'"
+    "test": "npx cypress run --record --key 90d6cfd4-0127-4fd7-8ed3-a0c4f3ed1b35 --browser chrome --spec 'cypress/e2e/gui/*.cy.js'"
   },
   "repository": {
     "type": "git",

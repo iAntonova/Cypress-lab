@@ -25,6 +25,24 @@ class CockpitGroupsPage {
         cy.get('@radioBnt').click()
     }
 
+    switchPrivate(){
+        cy.get('.switch')
+        .should('have.attr', 'aria-checked', 'false').as('privateSwitcher')
+        cy.get('@privateSwitcher').click()
+    }
+
+    // checkPrivateIconHover(textHovered){
+    //     cy.get('.icon-information').click({ force: true })
+    //     cy.get('ngb-tooltip-window').should('contain', textHovered)        
+    // }
+
+    checkPrivateIconHover(textHovered){
+        cy.get('.icon-information')
+        .invoke('show')
+        .click()
+        cy.get('ngb-tooltip-window').should('contain', textHovered)        
+    }
+
     typeDescription(textDescription) {
         cy.get('textarea')
             .type(textDescription)

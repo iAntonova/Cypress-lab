@@ -20,7 +20,7 @@ describe('Employee Groups page UI', () => {
         cockpit.clickSideBarMenuSubItem('Employee Groups')
     })
 
-    it.only('creates Custom group', () => {
+    it('creates Custom group with one Employee', () => {
         employeeGroups.addGroup()
         employeeGroups.typeName(faker.company.catchPhrase())
         employeeGroups.selectRadioBnt('Custom')
@@ -30,6 +30,25 @@ describe('Employee Groups page UI', () => {
         popupHelp.checkPopupTitle('Select Employees')
         employeeGroups.selectFirstEmployee()
         employeeGroups.clickSaveBtn()
+    })
+
+    it('creates private Custom group with one Employee', () => {
+        employeeGroups.addGroup()
+        employeeGroups.typeName(faker.company.catchPhrase())
+        employeeGroups.selectRadioBnt('Custom')
+        employeeGroups.switchPrivate()
+        employeeGroups.typeDescription(faker.lorem.sentence())
+        
+        employeeGroups.clickNextBtn()
+
+        popupHelp.checkPopupTitle('Select Employees')
+        employeeGroups.selectFirstEmployee()
+        employeeGroups.clickSaveBtn()
+    })
+
+    it.skip('NOT FINISHED: checks hover text for Private switcher', () => {
+        employeeGroups.addGroup()
+        employeeGroups.checkPrivateIconHover('Private groups will not be visible for their members in the My Groups tab.')
     })
 
     it('checks popup title "Add New Group"', () => {
@@ -57,8 +76,6 @@ describe('Employee Groups page UI', () => {
         employeeGroups.checkFieldName('Description', 3)
     })
 
-    it('checks field name "Description"', () => {
-        
-    })
+    
     
 })
