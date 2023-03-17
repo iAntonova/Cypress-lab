@@ -20,10 +20,59 @@ describe('Employee Groups page UI', () => {
         cockpit.clickSideBarMenuSubItem('Employee Groups')
     })
 
+    /* Dynamic */
+
+
+    it.skip('creates Dynamic group with one Employee', () => {
+        employeeGroups.addGroup()
+        employeeGroups.typeName(faker.company.catchPhrase())
+        employeeGroups.selectDynamicRadioBnt()
+        employeeGroups.typeDescription(faker.lorem.sentence())
+        employeeGroups.clickNextBtn()
+
+        popupHelp.checkPopupTitle('Select Rules')
+        employeeGroups.selectByGoupRule('Gender')
+
+        // employeeGroups.selectAllEmployees()
+        // employeeGroups.clickSaveBtn()
+    })
+
+    /* Dynamic: Select Rules pop-up */
+
+
+
+    /* Custom */
+
+    it('creates Custom group with 10 Employees', () => {
+        employeeGroups.addGroup()
+        employeeGroups.typeName(faker.company.catchPhrase())
+        employeeGroups.selectCustomRadioBnt()
+        employeeGroups.typeDescription(faker.lorem.sentence())
+        employeeGroups.clickNextBtn()
+
+        popupHelp.checkPopupTitle('Select Employees')
+        employeeGroups.selectAllEmployees()
+        employeeGroups.clickSaveBtn()
+    })
+
+    it('creates private Custom group with 10 Employee', () => {
+        employeeGroups.addGroup()
+        employeeGroups.typeName(faker.company.catchPhrase())
+        employeeGroups.selectCustomRadioBnt()
+        employeeGroups.switchPrivate()
+        employeeGroups.typeDescription(faker.lorem.sentence())
+
+        employeeGroups.clickNextBtn()
+
+        popupHelp.checkPopupTitle('Select Employees')
+        employeeGroups.selectAllEmployees()
+        employeeGroups.clickSaveBtn()
+    })
+
     it('creates Custom group with one Employee', () => {
         employeeGroups.addGroup()
         employeeGroups.typeName(faker.company.catchPhrase())
-        employeeGroups.selectRadioBnt('Custom')
+        employeeGroups.selectCustomRadioBnt()
         employeeGroups.typeDescription(faker.lorem.sentence())
         employeeGroups.clickNextBtn()
 
@@ -35,16 +84,18 @@ describe('Employee Groups page UI', () => {
     it('creates private Custom group with one Employee', () => {
         employeeGroups.addGroup()
         employeeGroups.typeName(faker.company.catchPhrase())
-        employeeGroups.selectRadioBnt('Custom')
+        employeeGroups.selectCustomRadioBnt()
         employeeGroups.switchPrivate()
         employeeGroups.typeDescription(faker.lorem.sentence())
-        
+
         employeeGroups.clickNextBtn()
 
         popupHelp.checkPopupTitle('Select Employees')
         employeeGroups.selectFirstEmployee()
         employeeGroups.clickSaveBtn()
     })
+
+    /*  General: Add New Group pop-up */
 
     it.skip('NOT FINISHED: checks hover text for Private switcher', () => {
         employeeGroups.addGroup()
@@ -58,24 +109,24 @@ describe('Employee Groups page UI', () => {
 
     it('checks field name "Name"', () => {
         employeeGroups.addGroup()
-        employeeGroups.checkFieldName('Name', 0)
+        employeeGroups.checkFieldName('Name:', 0)
     })
 
     it('checks field name "Type"', () => {
         employeeGroups.addGroup()
-        employeeGroups.checkFieldName('Type', 1)
+        employeeGroups.checkFieldName('Type:', 1)
     })
 
     it('checks field name "Private"', () => {
         employeeGroups.addGroup()
-        employeeGroups.checkFieldName('Private', 2)
+        employeeGroups.checkFieldName('Private:', 2)
     })
 
     it('checks field name "Description"', () => {
         employeeGroups.addGroup()
-        employeeGroups.checkFieldName('Description', 3)
+        employeeGroups.checkFieldName('Description:', 3)
     })
 
-    
-    
+
+
 })
