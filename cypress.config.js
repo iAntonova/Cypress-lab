@@ -5,6 +5,7 @@ module.exports = defineConfig({
   e2e: {
     baseUrl: 'https://test.raiser.work/#',
     defaultCommandTimeout: 40000,
+    pageLoadTimeout: 120000,
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
