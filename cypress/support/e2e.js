@@ -15,6 +15,7 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import './api-commands'
 import '@applitools/eyes-cypress/commands'
 import 'cypress-plugin-api'
 

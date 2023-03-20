@@ -41,12 +41,25 @@ Cypress.Commands.add('loginUI', (username, password, namecheck) => {
 
 Cypress.Commands.add('loginByApi', (username, password) => {
     cy.session(username, () => {
-        cy.request('POST', 'https://auth.raiser.work/connect/token', {
-            username,
-            password,
-        }).then((response) => {
-            expect(response.status).to.eq(200)
+        cy.request({
+            method: 'POST', 
+            url: 'https://auth.raiser.work/connect/token',
+            form: true,
+            body: {
+                username: username, 
+                password: password,
+                subdomain: 'test',
+                client_id: 'angularapi1',
+                grant_type: 'password',
+                client_secret: 'secret',
+                scope: 'api3 openid offline_access'
+            }
         })
+        cy.getCookie('cypress-session-cookie').should('exist')
+        // .then((response) => {
+        //     expect(response.status).to.eq(200)
+
+        // })
     })
 })
 
