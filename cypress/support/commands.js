@@ -39,46 +39,38 @@ Cypress.Commands.add('loginUI', (username, password, namecheck) => {
 })
 
 
-Cypress.Commands.add('loginByApi', (username, password) => {
-    cy.session(username, () => {
-        cy.request({
-            method: 'POST', 
-            url: 'https://auth.raiser.work/connect/token',
-            form: true,
-            body: {
-                username: username, 
-                password: password,
-                subdomain: 'test',
-                client_id: 'angularapi1',
-                grant_type: 'password',
-                client_secret: 'secret',
-                scope: 'api3 openid offline_access'
-            }
+Cypress.Commands.add('loginByApi', (username) => {
+    const login = (username, () => {
+        cy.session(username, () => {
+            cy.request({
+                method: 'POST',
+                url: 'https://auth.raiser.work/connect/token',
+                form: true,
+                body: {
+                    username: username,
+                    password: 'Volo12345',
+                    subdomain: 'test',
+                    client_id: 'angularapi1',
+                    grant_type: 'password',
+                    client_secret: 'secret',
+                    scope: 'api3 openid offline_access'
+                }
+            }).then(({resp}) => {
+                window.localStorage.setItem('authToken', resp.body.access_token)
+                    // expect(resp.status).to.eq(200)
+                    // expect(resp.body.token_type).equal('Bearer')
+                    // tokenvalue = resp.body.access_token
+                    // cy.log(resp.body.access_token)
+                })
         })
-        cy.getCookie('cypress-session-cookie').should('exist')
-        // .then((response) => {
-        //     expect(response.status).to.eq(200)
-
-        // })
     })
 })
 
-// Cypress.Commands.add('loginViaUi', (user) => {
-//     cy.session(
-//       user,
-//       () => {
-//         cy.visit('/login')
-//         cy.get(':nth-child(3) > .new-element').type(user.email)
-//         cy.get(':nth-child(4) > .new-element').type(user.password)
-//         cy.click('.btn-blue')
-//         cy.url().should('contain', '/dashboard')
-//         //cy.get('h1').contains(`Welcome back ${user.name}!`)
-//         cy.get('.m-b-3 > .name-hyperlink').contains(`${user.name}`)
-//       },
-//       {
-//         validate: () => {
-//           cy.getCookie('auth_key').should('exist')
-//         },
-//       }
-//     )
-// })
+
+// let tokenvalue
+
+//     //     cy.loginByApi('victoria.antonova@volo.global', 'Volo12345')
+
+
+//     it('Example sending GET request', () => {
+//         
