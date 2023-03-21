@@ -1,0 +1,122 @@
+{
+    "data": [
+        {
+            "name": "Microsoft Exchange / Office 365",
+            "module": 1,
+            "isTenantConnected": true,
+            "isConnected": true,
+            "hasBeenConnected": true,
+            "expirationDate": "2023-03-21T13:49:38",
+            "info": {
+                "summary": " Enhance your recruitment emailing with Raiser and Microsoft Exchange or Office 365 Integration",
+                "website": "https://www.microsoft.com/en-us/microsoft-365/exchange/email",
+                "instruction": "https://www.raiser.global",
+                "support": "info@raiser.global",
+                "about": "Integrate seamlessly with Microsoft Exchange/ Microsoft Office 365 server, to sync with your company email account and communicate with the candidates directly from Raiser.",
+                "why": "Syncing of candidate mails to your inbox @@2-way responding via Raiser or Outlook @@Attaching files to emails @@Bulk emailing to the candidates @@Email scheduling features",
+                "how": "Integration with Microsoft Exchange/Microsoft Office 365 provides 2-way mailbox syncing meaning that the email to the candidate sent from Raiser will appear in your Outlook mailbox and vice versa. ##After the integration is activated for the company, each user will need to enable emailing add-on to connect to his personal inbox. ##More information about integration with Microsoft Exchange/ Microsoft Office 365  can be found via the Integration Instructions."
+            },
+            "configs": null,
+            "tags": null,
+            "images": null,
+            "logo": "https://raiserqast.blob.core.windows.net/integration/1/logo.png",
+            "thumbnailIcon": "https://raiserqast.blob.core.windows.net/integration/1/thumbnailIcon.png",
+            "id": 1
+        },
+        {
+            "name": "Microsoft Office 365 Calendar",
+            "module": 1,
+            "isTenantConnected": true,
+            "isConnected": true,
+            "hasBeenConnected": true,
+            "expirationDate": "2023-03-21T14:35:46",
+            "info": {
+                "summary": "The details of your calendar and interview schedule are all in one place with Raiser and Microsoft Office 365 Calendar integration",
+                "website": "https://www.microsoft.com/en-ww/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook",
+                "instruction": "https://www.raiser.global",
+                "support": "info@raiser.global",
+                "about": "Integrate seamlessly with Microsoft Office 365 Calendar, to sync with your company calendar and schedule meetings with the candidates directly from Raiser.",
+                "why": "Two-way meetings synchronisation between Microsoft Office 365 Calendar and Raiser @@A scheduling assistant that allows users to find the best meeting slot for all invitees @@File attachments in meeting invitations",
+                "how": "Integration with Microsoft Office 365 Calendar provides two-way calendar synchronisation, which means meetings added from Raiser will appear in your Microsoft Office 365 calendar and vice versa. ##After the integration is activated for a company, each user will need to enable add-on to connect to his personal calendar. ##More information about integration with Microsoft Office 365 Calendar can be found via the Integration Instructions."
+            },
+            "configs": null,
+            "tags": null,
+            "images": null,
+            "logo": "https://raiserqast.blob.core.windows.net/integration/2/logo.png",
+            "thumbnailIcon": "https://raiserqast.blob.core.windows.net/integration/2/thumbnailIcon.png",
+            "id": 2
+        },
+        {
+            "name": "Gmail",
+            "module": 2,
+            "isTenantConnected": true,
+            "isConnected": false,
+            "hasBeenConnected": false,
+            "expirationDate": null,
+            "info": {
+                "summary": "Enhance your recruitment mailing with Raiser and Gmail Integration",
+                "website": "https://developers.google.com/gmail/api",
+                "instruction": "https://www.raiser.global",
+                "support": "info@raiser.global",
+                "about": "Easily integrate with the Gmail server, to sync with your company email account and communicate with candidates directly from Raiser.",
+                "why": "Sending emails to candidates via Raiser (syncing emails to Gmail) @@2-way reply via Raiser or Gmail @@Attaching files to emails @@Bulk emailing to the candidates @@Email scheduling features",
+                "how": "Integration with Gmail provides two-way mailbox sync, which means an email sent from Raiser will appear in your Gmail mailbox and vice versa. ##After activating the integration for a company, users must enable the emailing add-on to connect to their personal inbox. ##For more information on integrating with Gmail, see the Integration Instructions."
+            },
+            "configs": null,
+            "tags": null,
+            "images": null,
+            "logo": "https://raiserqast.blob.core.windows.net/integration/3/logo.png",
+            "thumbnailIcon": "https://raiserqast.blob.core.windows.net/integration/3/thumbnailIcon.png",
+            "id": 3
+        },
+        {
+            "name": "Google Calendar",
+            "module": 2,
+            "isTenantConnected": true,
+            "isConnected": false,
+            "hasBeenConnected": false,
+            "expirationDate": null,
+            "info": {
+                "summary": "The details of your calendar and interview schedule are all in one place with Raiser and Google Calendar integration.",
+                "website": "https://developers.google.com/calendar/api",
+                "instruction": "https://www.raiser.global",
+                "support": "info@raiser.global",
+                "about": "Easy Google Calendar integration to sync with your company calendar and schedule meetings with candidates directly from Raiser.",
+                "why": "Two-way meetings synchronization between Google Calendar and Raiser. @@A scheduling assistant that allows users to find the best time slot for all invitees. @@File attachments in meeting invitations.",
+                "how": "Integration with Google Calendar provides two-way calendar synchronization, which means meetings added from Raiser will appear in your Google calendar and vice versa. ##After activating the integration for the company, users must enable the add-on to connect to their personal calendars. ##For more information on integrating with Google Calendar, see the Integration Guide."
+            },
+            "configs": null,
+            "tags": null,
+            "images": null,
+            "logo": "https://raiserqast.blob.core.windows.net/integration/4/logo.png",
+            "thumbnailIcon": "https://raiserqast.blob.core.windows.net/integration/4/thumbnailIcon.png",
+            "id": 4
+        },
+        {
+            "name": "Microsoft Teams",
+            "module": 1,
+            "isTenantConnected": true,
+            "isConnected": false,
+            "hasBeenConnected": true,
+            "expirationDate": null,
+            "info": {
+                "summary": "Creation of specific teams and channels in Microsoft Teams based on the relevant information from Raiser.",
+                "website": "https://learn.microsoft.com/en-us/microsoftteams/platform/samples/integrating-web-apps",
+                "instruction": "https://www.raiser.global",
+                "support": "info@raiser.global",
+                "about": "Integration with Microsoft Teams provides the following functionality:",
+                "why": "Create teams and channels based on relevant data from Raiser @@Request/Approve Time Offs @@Fill in data about daily working hours @@View Today’s Out of Office/Birthdays @@View data about any Employee added to the system @@View Reports To/Reporters links @@Create meetings between Associates and Candidates (via Microsoft Calendar Integration)",
+                "how": "Raiser's integration with Microsoft Teams ensures the creation of teams and channels based on relevant information from the system. Also, dynamic groups in the system will allow having equivalent teams and channels in Microsoft Teams. ##In addition, the integration allows performing the main functionality of Raiser through Microsoft Teams such as requesting and approving Time Offs, viewing birthdays and out-of-office staff, searching for employee-related details, etc."
+            },
+            "configs": null,
+            "tags": null,
+            "images": null,
+            "logo": "https://raiserqast.blob.core.windows.net/integration/5/logo.png",
+            "thumbnailIcon": "https://raiserqast.blob.core.windows.net/integration/5/thumbnailIcon.png",
+            "id": 5
+        }
+    ],
+    "success": true,
+    "message": "Success",
+    "error": null
+}
