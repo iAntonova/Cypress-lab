@@ -18,40 +18,36 @@ class RecruitmentStagePage {
         cy.get('.col-sm-12 > .btn-default-blue').click()
     }
 
-    typeStartTime(){
+    typeStartTime() {
         cy.get('.select-cursor > .ng-select-container > .ng-value-container > .ng-input > input')
             .type('01')
         cy.contains('01:00').click()
     }
 
-checkAddedAssociate(associateName){
-cy.get('.employee-name').each(($el, index, $list) => {
-    cy.log("Found: \'" + $el.text() + "\'" + " with index: " + index)
-    // const ele = cy.wrap($el.innerText)
-    // ele.contains(associateName, { matchCase: false })
+    checkAddedAssociate(associateName) {
+        cy.get('.employee-name').each(($el, index, $list) => {
+            cy.log("Found with trim: \'" + $el.text().trim() + "\'" + " with index: " + index)
+            cy.log("Found: \'" + $el.text() + "\'" + " with index: " + index)
 
-    if ($el.text() === associateName) {
-        cy.log("Hi!  !" + index)
-        cy.log($el.text())
-        cy.get('.icon-delete').eq(index).click()
+            if ($el.text().trim() == associateName) {
+                cy.get('.icon-delete').eq(index).click()
+            } else {
+                // If no elements with matching text were found
+                cy.log("No match found in: " + index + "for: " + associateName)
+            }
+        })
     }
 
-    })
-
-    
-
-}
-
-    deleteByBinIcon(){
+    deleteByBinIcon() {
         cy.get('.icon-delete').click()
     }
 
-    checkText_CancelAssignment(textInside){
+    checkText_CancelAssignment(textInside) {
         cy.get('confirmation.ng-star-inserted > .modal > .modal-dialog > .modal-content > .modal-body > :nth-child(1) > .col-sm-12')
-        .should('contain', textInside)
+            .should('contain', textInside)
     }
 
-    confirmDeletingAssignment(){
+    confirmDeletingAssignment() {
         cy.get('.col-sm-12 > .btn-default-danger').click()
     }
 
@@ -66,16 +62,16 @@ cy.get('.employee-name').each(($el, index, $list) => {
 
     clearFocus() {
         cy.contains('Associates:').click()
-          //  .click('left')
+        //  .click('left')
     }
 
-    selectAssociatesDdl(associateList) {
+    selectAssociatesDdl(associateName) {
         cy.wait(3000)
         cy.get('div.ng-value-container')
             .eq(0)
             .should('contain', 'Select').as('associatesDdl')
 
-        associateList.forEach((associate) => {
+        associateName.forEach((associate) => {
             cy.get('@associatesDdl')
                 .type(associate)
             cy.get('div.ng-option')
