@@ -20,7 +20,7 @@
   "devDependencies": {
     "@applitools/eyes-cypress": "^3.29.1",
     "@faker-js/faker": "^7.6.0",
-    "cypress": "^12.8.1"
+    "cypress": "^12.9.0"
   },
   "dependencies": {
     "cypress-plugin-api": "^2.10.3"
