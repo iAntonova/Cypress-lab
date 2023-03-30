@@ -65,49 +65,13 @@ describe('Testing Stage page UI - without Integration', () => {
         })
         recrStage.clearFocus()
 
-        cy.get('button.datepicker__open').click()
-        var date = new Date()
-        cy.log(date.getDate())
-        date.setDate(date.getDate() + 2)
-        cy.log(date.getDate() + 1)
-
-        var futureYear = date.getFullYear()
-        //var futureMonth = date.toLocaleString("default", { month: "long" })
-        var futureMonth = date.getMonth()
-        var futureDay = date.getDate()
-
-        cy.log("Future year to select: " + futureYear)
-        cy.log("Future month to select: " + futureMonth)
-        cy.log("Future day to select: " + futureDay)
-
-        function selectMonthAndYear() {
-            cy.get('#cdk-overlay-0').find('.label-wrapper').first().then(currentDate => {
-                if (!currentDate.text().includes(futureYear)) {
-                    cy.get('button.custom-next-month').first().click()
-                    selectMonthAndYear()
-                }
-            }).then(() => {
-                cy.get('#cdk-overlay-0').find('.label-wrapper').first().then(currentDate => {
-                    if (!currentDate.text().includes(futureMonth)) {
-                        cy.get('button.custom-next-month').first().click()
-                        selectMonthAndYear()
-                    }
-                })
-            })
-        }
-
-        function selectFutureDay() {
-            cy.get('.mat-calendar-body-cell').contains(futureDay).click()
-        }
-
-        selectMonthAndYear()
-        selectFutureDay()
-
+        recrStage.pickDate()
         recrStage.typeStartTime()
+
         recrStage.saveAssignment()
 
         cy.get('@associateData').then((associate) => {
-            recrStage.checkAddedAssociate(associate.associateName)
+            recrStage.checkAddedAssociateAndDelete(associate.associateName)
         })
         popupHelp.checkPopupTitle('Cancel Assignment')
         recrStage.checkText_CancelAssignment('Are you sure you want to cancel this assignment?')
