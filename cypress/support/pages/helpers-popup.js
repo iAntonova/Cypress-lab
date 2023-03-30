@@ -5,6 +5,8 @@ class PopupHelpers {
         cy.get('@popupTitle')
             .should('contain', popupName)
     }
+
+   
 }
 
 export default PopupHelpers;
