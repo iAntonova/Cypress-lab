@@ -66,10 +66,10 @@ class RecruitmentStagePage {
 
     checkAddedAssociateAndEdit(associateName) {
         cy.get('.employee-name').each(($el, index, $list) => {
-            cy.log("Found with trim: \'" + $el.text().trim() + "\'" + " with index: " + index)
+            cy.log("Found for EDIT: \'" + $el.text().trim() + "\'" + " with index: " + index)
 
             if ($el.text().trim() == associateName) {
-                cy.get('.icon-delete').eq(index).click()
+                cy.get('.icon-edit').eq(index).click()
             } else {
                 // If no elements with matching text were found
                 cy.log("No match found in: " + index + "for: " + associateName)
@@ -79,7 +79,7 @@ class RecruitmentStagePage {
 
     checkAddedAssociateAndDelete(associateName) {
         cy.get('.employee-name').each(($el, index, $list) => {
-            cy.log("Found with trim: \'" + $el.text().trim() + "\'" + " with index: " + index)
+            cy.log("Found for DELETE: \'" + $el.text().trim() + "\'" + " with index: " + index)
 
             if ($el.text().trim() == associateName) {
                 cy.get('.icon-delete').eq(index).click()
