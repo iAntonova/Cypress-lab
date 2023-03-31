@@ -6,24 +6,32 @@ import HomePage from "../../support/pages/home-page"
 import CockpitPage from "../../support/pages/cockpit-page"
 import CockpitGroupsPage from "../../support/pages/cockpit-groups-page"
 import PopupHelpers from "../../support/pages/helpers-popup"
+import LoginApiPage from "../../support/pages/log-in-page"
+
 
 const home = new HomePage()
 const cockpit = new CockpitPage()
 const employeeGroups = new CockpitGroupsPage()
 const popupHelp = new PopupHelpers()
+const loginapi = new LoginApiPage()
+
 
 describe('Employee Groups page UI', () => {
 
     beforeEach(() => {
-        cy.loginUI('victoria.antonova@volo.global', 'Volo12345', 'Victoria Antonova')
+        //cy.loginUI('victoria.antonova@volo.global', 'Volo12345', 'Victoria Antonova')
+        loginapi.login('Godfrey.Nyathi@yopmail.com', 'Godfrey Nyathi')
+        employeeGroups.visit()
+        /* open from homepage:
+        home.visit()
         home.openCockpit()
-        cockpit.clickSideBarMenuSubItem('Employee Groups')
+        cockpit.clickSideBarMenuSubItem('Employee Groups') */
     })
 
     /* Dynamic */
 
 
-    it.skip('creates Dynamic group with one Employee', () => {
+    it.only('creates Dynamic group with one Employee', () => {
         employeeGroups.addGroup()
         employeeGroups.typeName(faker.company.catchPhrase())
         employeeGroups.selectDynamicRadioBnt()
