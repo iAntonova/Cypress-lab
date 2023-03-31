@@ -82,7 +82,8 @@ class CockpitGroupsPage {
     /* Group Rules */
     selectByGoupRule(textGroupRuleList){
         // cy.get('#cdk-drop-list-0 > .cdk-drag > .table-row > .w-prcent-34 > .new-element > .ng-select-container > .ng-value-container > .ng-input > input')
-        cy.get('ng-select[class="new-element ng-select ng-select-single ng-select-searchable ng-pristine ng-invalid ng-select-bottom validation-error ng-touched ng-select-opened"] div[class="ng-placeholder"]')
+        //cy.get('ng-select[class="new-element ng-select ng-select-single ng-select-searchable ng-pristine ng-invalid ng-select-bottom validation-error ng-touched ng-select-opened"] div[class="ng-placeholder"]')
+        cy.get('.w-prcent-34 > .new-element')
         .as('byGoupRule')
         cy.get('@byGoupRule').type(textGroupRuleList)
 
@@ -95,6 +96,7 @@ class CockpitGroupsPage {
             cy.wait(2000)
         })
     }
+    // .ng-select > ng-dropdown-panel
 
     // selectAssociatesDdl(associateList) {
     //     cy.wait(3000)
